@@ -17,7 +17,7 @@
 To get started:
 
 * for the backend api server follow instructions in the the backend readme file: 
- * [`./backend/`](./backend/README.md)
+  * [`./backend/`](./backend/README.md)
 * for the sample frontend app, follow instructions in the frontend readme file:
   * [`./frontend/`](./frontend/README.md)
 
