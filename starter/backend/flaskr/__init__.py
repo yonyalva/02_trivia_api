@@ -44,6 +44,7 @@ def create_app(test_config=None):
           formatted_questions = [question.format() for question in questions]
           categories = Category.query.all()
           formatted_categories = [category.format() for category in categories]
+          current_category = list(set([question['category'] for question in formatted_questions]))
 
           if len(formatted_questions) == 0:
             abort(404)
@@ -54,7 +55,7 @@ def create_app(test_config=None):
           'questions': formatted_questions[start:end],
           'total_questions': len(formatted_questions),
           'categories': formatted_categories,
-          'current_category': 'Science'
+          'current_category':  current_category
             })
 
   @app.route('/questions/<int:question_id>', methods=['DELETE'])
@@ -137,8 +138,7 @@ def create_app(test_config=None):
           'success':True,
           'questions': formatted_questions,
           'categories': formatted_categories,
-          'total_questions': len(formatted_questions),
-          'current_category': 'Science'
+          'total_questions': len(formatted_questions)
             })
 
   @app.route('/quizzes', methods=['POST'])
